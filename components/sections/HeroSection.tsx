@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 
-const TARGET = new Date("2025-07-19T14:00:00+03:00");
+const TARGET = new Date("2026-07-19T14:00:00+03:00");
 
 function calcTimeLeft() {
   const diff = TARGET.getTime() - Date.now();
@@ -65,15 +65,28 @@ export default function HeroSection() {
         background: "#050a0e",
       }}
     >
-      {/* ── Background gradient/mesh ── */}
+      {/* ── Background: Waterhill tesis görseli ── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url('https://waterhill.com.tr/wp-content/uploads/2023/03/slide1-scaled.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          filter: "brightness(0.35) saturate(0.8)",
+        }}
+      />
+      {/* Aqua/gradient overlay */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,229,255,0.12) 0%, transparent 65%), " +
-            "radial-gradient(ellipse 60% 80% at 80% 80%, rgba(198,241,53,0.06) 0%, transparent 60%), " +
-            "radial-gradient(ellipse 50% 50% at 20% 60%, rgba(255,61,154,0.05) 0%, transparent 55%)",
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,229,255,0.15) 0%, transparent 65%), " +
+            "radial-gradient(ellipse 60% 80% at 80% 80%, rgba(198,241,53,0.07) 0%, transparent 60%), " +
+            "radial-gradient(ellipse 50% 50% at 20% 60%, rgba(255,61,154,0.06) 0%, transparent 55%), " +
+            "linear-gradient(to bottom, rgba(5,10,14,0.3) 0%, rgba(5,10,14,0.6) 100%)",
           pointerEvents: "none",
         }}
       />
@@ -267,7 +280,7 @@ export default function HeroSection() {
               color: "#c6f135",
             }}
           >
-            {finished ? "Festival Başladı! 🎉" : "Festivale Kalan Süre · 19 Temmuz 2025"}
+            {finished ? "Festival Başladı! 🎉" : "Festivale Kalan Süre · 19 Temmuz 2026"}
           </div>
 
           {!finished && (
