@@ -1,7 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
+
+const TARGET = new Date("2025-07-19T14:00:00+03:00");
+
+function calcTimeLeft() {
+  const diff = TARGET.getTime() - Date.now();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  return {
+    days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours:   Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  };
+}
 
 const TICKER_ITEMS = [
   "BIGENÇFEST AQUA 2025",
@@ -18,10 +31,26 @@ const TICKER_ITEMS = [
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [loaded, setLoaded] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [finished, setFinished] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
     return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    // Hydration sonrası başlat
+    setTimeLeft(calcTimeLeft());
+    const interval = setInterval(() => {
+      const tl = calcTimeLeft();
+      setTimeLeft(tl);
+      if (tl.days === 0 && tl.hours === 0 && tl.minutes === 0 && tl.seconds === 0) {
+        setFinished(true);
+        clearInterval(interval);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -215,6 +244,100 @@ export default function HeroSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ── Countdown ── */}
+        <div
+          style={{
+            marginTop: 56,
+            opacity: loaded ? 1 : 0,
+            transition: "opacity 0.6s ease 0.75s",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 16,
+          }}
+        >
+          <div
+            style={{
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              color: "#c6f135",
+            }}
+          >
+            {finished ? "Festival Başladı! 🎉" : "Festivale Kalan Süre · 19 Temmuz 2025"}
+          </div>
+
+          {!finished && (
+            <div style={{ display: "flex", gap: "clamp(12px, 3vw, 28px)", alignItems: "center" }}>
+              {[
+                { value: timeLeft.days,    label: "GÜN" },
+                { value: timeLeft.hours,   label: "SAAT" },
+                { value: timeLeft.minutes, label: "DAKİKA" },
+                { value: timeLeft.seconds, label: "SANİYE" },
+              ].map((unit, i) => (
+                <div key={unit.label} style={{ display: "flex", alignItems: "center", gap: "clamp(12px, 3vw, 28px)" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: 4,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "clamp(60px, 14vw, 88px)",
+                        height: "clamp(60px, 14vw, 88px)",
+                        borderRadius: 14,
+                        background: "rgba(0,229,255,0.06)",
+                        border: "1px solid rgba(0,229,255,0.18)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "clamp(1.4rem, 4vw, 2.2rem)",
+                        fontWeight: 900,
+                        color: "#00e5ff",
+                        letterSpacing: "-0.03em",
+                        fontVariantNumeric: "tabular-nums",
+                        boxShadow: "0 0 20px rgba(0,229,255,0.08)",
+                      }}
+                    >
+                      {String(unit.value).padStart(2, "0")}
+                    </div>
+                    <span
+                      style={{
+                        fontSize: 9,
+                        fontWeight: 700,
+                        letterSpacing: "0.18em",
+                        color: "rgba(176,220,230,0.4)",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {unit.label}
+                    </span>
+                  </div>
+                  {/* Separator — son elemanda gösterme */}
+                  {i < 3 && (
+                    <span
+                      style={{
+                        fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
+                        fontWeight: 900,
+                        color: "rgba(0,229,255,0.3)",
+                        lineHeight: 1,
+                        marginBottom: 20,
+                        animation: "aquaPulse 1s ease-in-out infinite",
+                      }}
+                    >
+                      :
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
