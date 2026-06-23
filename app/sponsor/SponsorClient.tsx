@@ -121,7 +121,7 @@ const CONTACTS = [
 
 function buildWALink() {
   const msg = encodeURIComponent(
-    `Merhaba! BIGENÇFEST AQUA 2026 için sponsor olmak istiyorum.\n\nSponsörlük paketleri hakkında detaylı bilgi alabilir miyim?`
+    `Merhaba! BIGENÇFEST AQUA 2026 için sponsor olmak istiyorum.\n\nSponsorluk paketleri hakkında detaylı bilgi alabilir miyim?`
   );
   return `https://wa.me/${WA_NUMBER}?text=${msg}`;
 }
@@ -178,7 +178,7 @@ export default function SponsorClient() {
               marginBottom: 20,
             }}
           >
-            Sponsörlük Fırsatları
+            Sponsorluk Fırsatları
           </div>
 
           <h1
@@ -217,7 +217,7 @@ export default function SponsorClient() {
             }}
           >
             Türkiye'nin en büyük açık hava müzik festivalinde 25.000+ genç katılımcıya
-            markanızı duyurun. 15–17 Ağustos 2026, Bodrum.
+            markanızı duyurun. 15–17 Ağustos 2026, Antalya.
           </p>
 
           {/* Stats */}
@@ -384,7 +384,7 @@ export default function SponsorClient() {
               letterSpacing: "-0.02em",
             }}
           >
-            Sponsörlük Seçenekleri
+            Sponsorluk Seçenekleri
           </h2>
 
           <div
@@ -618,7 +618,7 @@ export default function SponsorClient() {
               lineHeight: 1.7,
             }}
           >
-            Markanıza özel sponsörlük paketi oluşturmak için sponsörlük ekibimizle
+            Markanıza özel sponsorluk paketi oluşturmak için sponsorluk ekibimizle
             hemen iletişime geçin.
           </p>
 

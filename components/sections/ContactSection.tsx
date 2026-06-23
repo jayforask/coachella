@@ -55,9 +55,9 @@ const CONTACTS = [
 ];
 
 const INFO_ROWS = [
-  { icon: <MapPin size={16} />, label: "Konum", value: "Waterhill Aqua Park, Bodrum, Türkiye" },
+  { icon: <MapPin size={16} />, label: "Konum", value: "Waterhill Aqua Park, Antalya, Türkiye" },
   { icon: <Clock size={16} />, label: "Tarihler", value: "15 – 17 Ağustos 2026 · Kapılar 14:00'de açılır" },
-  { icon: <Mail size={16} />, label: "Sponsörlük", value: "sponsor@bigencfest.com" },
+  { icon: <Mail size={16} />, label: "Sponsorluk", value: "sponsor@bigencfest.com" },
   { icon: <Mail size={16} />, label: "Basın", value: "press@bigencfest.com" },
 ];
 
@@ -128,7 +128,7 @@ export default function ContactSection() {
               lineHeight: 1.7,
             }}
           >
-            Sorularınız, sponsörlük teklifleriniz veya basın talepleri için bizimle
+            Sorularınız, sponsorluk teklifleriniz veya basın talepleri için bizimle
             iletişime geçin.
           </p>
         </div>

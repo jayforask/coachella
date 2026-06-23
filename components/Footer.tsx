@@ -192,7 +192,7 @@ export default function Footer() {
                 maxWidth: 240,
               }}
             >
-              Türkiye&apos;nin en büyük açık hava müzik festivali. 15–17 Ağustos 2026, Bodrum.
+              Türkiye&apos;nin en büyük açık hava müzik festivali. 15–17 Ağustos 2026, Antalya.
             </p>
             {/* Organizatör küçük rozet */}
             <a

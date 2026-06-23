@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "Festival nerede yapılacak?",
-    a: "Festival, Bodrum Yalıkavak bölgesinde yer alan Waterhill Aqua Park'ta gerçekleştirilecek. Konum: Waterhill Aqua Park, Bodrum, Muğla.",
+    a: "Festival, Antalya'da yer alan Waterhill Aqua Park'ta gerçekleştirilecek. Konum: Waterhill Aqua Park, Antalya.",
   },
   {
     q: "VIP bilet ile ne gibi ayrıcalıklar sunuluyor?",
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "Festival alanına nasıl ulaşabilirim?",
-    a: "Antalya ve İzmir'den özel festival servisleri düzenlenecektir. Ayrıca Bodrum merkeze yakın oteller için ücretsiz shuttle hizmeti sunulacaktır. Detaylı ulaşım bilgileri festival tarihine yakın paylaşılacaktır.",
+    a: "İstanbul ve İzmir'den özel festival servisleri düzenlenecektir. Ayrıca Antalya merkeze yakın oteller için ücretsiz shuttle hizmeti sunulacaktır. Detaylı ulaşım bilgileri festival tarihine yakın paylaşılacaktır.",
   },
   {
     q: "Biletler iade edilebilir mi?",

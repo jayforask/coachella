@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "BIGENÇFEST AQUA 2026",
-  description: "Türkiye'nin en büyük müzik festivali — 15-17 Ağustos 2026, Bodrum",
+  description: "Türkiye'nin en büyük müzik festivali — 15-17 Ağustos 2026, Antalya",
   openGraph: {
     title: "BIGENÇFEST AQUA 2026",
     description: "Türkiye'nin en büyük müzik festivali",

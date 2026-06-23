@@ -14,7 +14,7 @@ const WA_NUMBER = "905319773113";
 
 function buildWALink() {
   const msg = encodeURIComponent(
-    "Merhaba! BIGENÇFEST AQUA 2026 için sponsor olmak istiyorum.\n\nSponsörlük paketleri hakkında detaylı bilgi alabilir miyim?"
+    "Merhaba! BIGENÇFEST AQUA 2026 için sponsor olmak istiyorum.\n\nSponsorluk paketleri hakkında detaylı bilgi alabilir miyim?"
   );
   return `https://wa.me/${WA_NUMBER}?text=${msg}`;
 }
@@ -63,7 +63,7 @@ export default function SponsorSection() {
               marginBottom: 18,
             }}
           >
-            Sponsörlük
+            Sponsorluk
           </div>
           <h2
             style={{

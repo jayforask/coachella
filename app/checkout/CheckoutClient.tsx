@@ -249,7 +249,7 @@ export default function CheckoutClient() {
               {ticket.name}
             </div>
             <div style={{ fontSize: 13, color: "rgba(176,220,230,0.45)", marginBottom: 20 }}>
-              BIGENÇFEST AQUA · 15–17 Ağustos 2026 · Bodrum
+              BIGENÇFEST AQUA · 15–17 Ağustos 2026 · Antalya
             </div>
 
             {/* Features */}

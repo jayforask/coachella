@@ -149,7 +149,7 @@ export default function SponsorTab() {
       {/* Paketler */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
         <h3 style={{ fontSize: 13, fontWeight: 800, color: "#fff", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-          Sponsörlük Paketleri ({form.packages.length})
+          Sponsorluk Paketleri ({form.packages.length})
         </h3>
         <button
           onClick={addPackage}

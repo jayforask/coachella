@@ -163,7 +163,7 @@ const defaultData: SiteData = {
     subTitle: "A Q U A",
     datePill: "15 – 17 AĞUSTOS 2026 · BODRUM",
     subtitle:
-      "Türkiye'nin en büyük müzik festivali · Bodrum'da 3 muhteşem gece",
+      "Türkiye'nin en büyük müzik festivali · Antalya'da 3 muhteşem gece",
     ctaPrimary: { label: "Bilet Al", href: "#tickets" },
     ctaSecondary: { label: "Lineup'ı Gör", href: "#lineup" },
     stats: [
@@ -282,12 +282,12 @@ const defaultData: SiteData = {
     heading: "Festival Hakkında",
     descTitle: "Türkiye'nin En Büyük Açık Hava Festivali",
     desc1:
-      "BIGENÇFEST AQUA, Bodrum'un eşsiz sahil manzarası eşliğinde 3 gün boyunca 50'den fazla sanatçıyla Türkiye'nin en büyük müzik deneyimini sunar.",
+      "BIGENÇFEST AQUA, Antalya'nın eşsiz sahil manzarası eşliğinde 3 gün boyunca 50'den fazla sanatçıyla Türkiye'nin en büyük müzik deneyimini sunar.",
     desc2:
       "Pop, elektronik, rock ve hip-hop türlerinde 5 farklı sahnede kesintisiz performanslar.",
     cards: [
       { icon: "Calendar", title: "Tarihler", value: "15–17 Ağustos 2026", sub: "3 gün · 3 gece",        color: "#00e5ff" },
-      { icon: "MapPin",   title: "Konum",    value: "Bodrum, Türkiye",    sub: "Yalıkavak Marina · Muğla", color: "#c6f135" },
+      { icon: "MapPin",   title: "Konum",    value: "Antalya, Türkiye",   sub: "Waterhill Aqua Park · Antalya", color: "#c6f135" },
       { icon: "Music2",   title: "Sahneler", value: "5 Farklı Sahne",     sub: "Ana · Aqua · Beach · Lounge · Club", color: "#ff3d9a" },
       { icon: "Clock",    title: "Saat",     value: "14:00 – 04:00",      sub: "Her gün kapılar 14:00'de açılır", color: "#a78bfa" },
     ],
@@ -304,7 +304,7 @@ const defaultData: SiteData = {
     sectionLabel: "Festival Mekanı",
     heading: "Waterhill Aqua Park",
     subheading:
-      "BIGENÇFEST AQUA 2026, Bodrum'un efsanevi su parkı Waterhill'de gerçekleşecek. Türkiye'nin en büyük aqua park alanında müzik ve su sporlarının benzersiz buluşması.",
+      "BIGENÇFEST AQUA 2026, Antalya'nın efsanevi su parkı Waterhill'de gerçekleşecek. Türkiye'nin en büyük aqua park alanında müzik ve su sporlarının benzersiz buluşması.",
     sponsorLabel: "Resmi Sponsor",
     sponsorSubLabel: "Mekan Sponsoru",
     logoSrc: "https://waterhill.com.tr/wp-content/uploads/2023/02/waterhill.png",
@@ -343,9 +343,9 @@ const defaultData: SiteData = {
     ctaHref: "#tickets",
   },
   sponsor: {
-    sectionLabel: "Sponsörlük",
+    sectionLabel: "Sponsorluk",
     heading: "Markanızı BIGENÇFEST ile Buluşturun",
-    subheading: "25.000+ genç katılımcıya ulaşın. 4 farklı sponsörlük paketiyle markanıza özel görünürlük sağlayın.",
+    subheading: "25.000+ genç katılımcıya ulaşın. 4 farklı sponsorluk paketiyle markanıza özel görünürlük sağlayın.",
     waNumber: "905319773113",
     contactEmail: "sponsor@bigencfest.com",
     contactPhone: "+90 531 977 31 13",
