@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import CheckoutClient from "./CheckoutClient";
 
 export const metadata = {
-  title: "Bilet Satın Al | BIGENÇFEST AQUA 2025",
+  title: "Bilet Satın Al | BIGENÇFEST AQUA 2026",
 };
 
 export default function CheckoutPage() {

@@ -54,7 +54,7 @@ export default function CheckoutClient() {
 
   function buildWALink() {
     const msg = encodeURIComponent(
-      `Merhaba! BIGENÇFEST AQUA 2025 bilet satın almak istiyorum.\n\n` +
+      `Merhaba! BIGENÇFEST AQUA 2026 bilet satın almak istiyorum.\n\n` +
       `🎟️ Bilet Tipi: ${ticket.name}\n` +
       `👤 Ad Soyad: ${name}\n` +
       `📞 Telefon: ${phone}\n` +
@@ -249,7 +249,7 @@ export default function CheckoutClient() {
               {ticket.name}
             </div>
             <div style={{ fontSize: 13, color: "rgba(176,220,230,0.45)", marginBottom: 20 }}>
-              BIGENÇFEST AQUA · 15–17 Ağustos 2025 · Bodrum
+              BIGENÇFEST AQUA · 15–17 Ağustos 2026 · Bodrum
             </div>
 
             {/* Features */}

@@ -1,39 +1,15 @@
 "use client";
 
-import { MapPin, Calendar, Clock, Music2 } from "lucide-react";
+import { useSiteStore } from "@/lib/store";
+import { Calendar, MapPin, Music2, Clock, Star, Users, Zap, Heart, type LucideIcon } from "lucide-react";
 
-const INFO_CARDS = [
-  {
-    icon: Calendar,
-    title: "Tarihler",
-    value: "15–17 Ağustos 2025",
-    sub: "3 gün · 3 gece",
-    color: "#00e5ff",
-  },
-  {
-    icon: MapPin,
-    title: "Konum",
-    value: "Bodrum, Türkiye",
-    sub: "Yalıkavak Marina · Muğla",
-    color: "#c6f135",
-  },
-  {
-    icon: Music2,
-    title: "Sahneler",
-    value: "5 Farklı Sahne",
-    sub: "Ana · Aqua · Beach · Lounge · Club",
-    color: "#ff3d9a",
-  },
-  {
-    icon: Clock,
-    title: "Saat",
-    value: "14:00 – 04:00",
-    sub: "Her gün kapılar 14:00'de açılır",
-    color: "#a78bfa",
-  },
-];
+const ICON_MAP: Record<string, LucideIcon> = {
+  Calendar, MapPin, Music2, Clock, Star, Users, Zap, Heart,
+};
 
 export default function InfoSection() {
+  const info = useSiteStore((s) => s.data.info);
+
   return (
     <section
       id="info"
@@ -44,79 +20,50 @@ export default function InfoSection() {
         overflow: "hidden",
       }}
     >
-      {/* BG accent */}
       <div
         style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: 1,
+          position: "absolute", bottom: 0, left: 0, right: 0, height: 1,
           background: "linear-gradient(90deg, transparent, rgba(0,229,255,0.2), transparent)",
         }}
       />
 
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 24px" }}>
-        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 64 }}>
-          <div className="section-label" style={{ marginBottom: 12 }}>Festival Bilgisi</div>
+          <div className="section-label" style={{ marginBottom: 12 }}>{info.sectionLabel}</div>
           <h2
             style={{
-              fontSize: "clamp(2rem, 5vw, 4rem)",
-              fontWeight: 900,
-              textTransform: "uppercase",
-              letterSpacing: "-0.02em",
-              color: "#fff",
+              fontSize: "clamp(2rem, 5vw, 4rem)", fontWeight: 900,
+              textTransform: "uppercase", letterSpacing: "-0.02em", color: "#fff",
             }}
           >
-            Festival Hakkında
+            {info.heading}
           </h2>
         </div>
 
         {/* Info cards */}
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-            gap: 20,
-            marginBottom: 80,
+            display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gap: 20, marginBottom: 80,
           }}
         >
-          {INFO_CARDS.map((card) => {
-            const Icon = card.icon;
+          {info.cards.map((card) => {
+            const Icon = ICON_MAP[card.icon] ?? Star;
             return (
               <div
                 key={card.title}
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: `1px solid ${card.color}22`,
-                  borderRadius: 16,
-                  padding: "28px 24px",
+                  background: "rgba(255,255,255,0.03)", border: `1px solid ${card.color}22`,
+                  borderRadius: 16, padding: "28px 24px",
                   transition: "border-color 0.3s, background 0.3s, transform 0.3s",
                 }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget;
-                  el.style.borderColor = `${card.color}55`;
-                  el.style.background = `${card.color}08`;
-                  el.style.transform = "translateY(-4px)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget;
-                  el.style.borderColor = `${card.color}22`;
-                  el.style.background = "rgba(255,255,255,0.03)";
-                  el.style.transform = "translateY(0)";
-                }}
+                onMouseEnter={(e) => { const el = e.currentTarget; el.style.borderColor = `${card.color}55`; el.style.background = `${card.color}08`; el.style.transform = "translateY(-4px)"; }}
+                onMouseLeave={(e) => { const el = e.currentTarget; el.style.borderColor = `${card.color}22`; el.style.background = "rgba(255,255,255,0.03)"; el.style.transform = "translateY(0)"; }}
               >
                 <div
                   style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: 12,
-                    background: `${card.color}15`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: 16,
+                    width: 44, height: 44, borderRadius: 12, background: `${card.color}15`,
+                    display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16,
                   }}
                 >
                   <Icon size={20} color={card.color} />
@@ -137,65 +84,41 @@ export default function InfoSection() {
 
         {/* About text block */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 48,
-            alignItems: "center",
-          }}
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}
           className="info-grid"
         >
           <div>
             <div className="section-divider" style={{ marginBottom: 24 }} />
             <h3
               style={{
-                fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)",
-                fontWeight: 900,
-                textTransform: "uppercase",
-                letterSpacing: "-0.02em",
-                color: "#fff",
-                lineHeight: 1.05,
-                marginBottom: 20,
+                fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 900,
+                textTransform: "uppercase", letterSpacing: "-0.02em",
+                color: "#fff", lineHeight: 1.05, marginBottom: 20,
               }}
             >
-              Türkiye&apos;nin{" "}
-              <span className="glow-text">En Büyük</span>{" "}
-              Açık Hava Festivali
+              <span className="glow-text">{info.descTitle}</span>
             </h3>
             <p style={{ fontSize: 15, color: "rgba(176,220,230,0.65)", lineHeight: 1.8, marginBottom: 16 }}>
-              BIGENÇFEST AQUA, Bodrum&apos;un eşsiz sahil manzarası eşliğinde 3 gün boyunca 50&apos;den fazla sanatçıyla Türkiye&apos;nin en büyük müzik deneyimini sunar.
+              {info.desc1}
             </p>
             <p style={{ fontSize: 15, color: "rgba(176,220,230,0.65)", lineHeight: 1.8 }}>
-              Pop, elektronik, rock ve hip-hop türlerinde 5 farklı sahnede kesintisiz performanslar.
+              {info.desc2}
             </p>
           </div>
 
           <div
             style={{
-              background: "rgba(0,229,255,0.04)",
-              border: "1px solid rgba(0,229,255,0.12)",
-              borderRadius: 20,
-              padding: "36px 32px",
+              background: "rgba(0,229,255,0.04)", border: "1px solid rgba(0,229,255,0.12)",
+              borderRadius: 20, padding: "36px 32px",
             }}
           >
-            {[
-              ["🎵", "50+ sanatçı ve DJ"],
-              ["🏖️", "Sahil & marina manzarası"],
-              ["🎪", "5 farklı sahne alanı"],
-              ["🍹", "Premium yiyecek & içecek"],
-              ["🚌", "Antalya & İzmir servisleri"],
-              ["🏨", "Festival konaklama paketleri"],
-            ].map(([icon, text]) => (
+            {info.features.map(({ icon, text }) => (
               <div
                 key={text}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 14,
-                  padding: "12px 0",
+                  display: "flex", alignItems: "center", gap: 14, padding: "12px 0",
                   borderBottom: "1px solid rgba(0,229,255,0.06)",
-                  fontSize: 14,
-                  color: "rgba(240,254,255,0.75)",
+                  fontSize: 14, color: "rgba(240,254,255,0.75)",
                 }}
               >
                 <span style={{ fontSize: 18 }}>{icon}</span>
@@ -205,6 +128,66 @@ export default function InfoSection() {
           </div>
         </div>
       </div>
+
+        {/* ── Organizatör Kartı ── */}
+        <div
+          style={{
+            marginTop: 56,
+            padding: "28px 32px",
+            borderRadius: 20,
+            background: "linear-gradient(135deg, rgba(255,105,0,0.07), rgba(255,61,154,0.04))",
+            border: "1px solid rgba(255,105,0,0.2)",
+            display: "flex",
+            alignItems: "center",
+            gap: 24,
+            flexWrap: "wrap",
+          }}
+        >
+          {/* AE monogram */}
+          <div style={{
+            width: 64, height: 64, borderRadius: 16, flexShrink: 0,
+            background: "linear-gradient(135deg, #ff6900, #ff3d9a)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontWeight: 900, fontSize: 22, color: "#fff", letterSpacing: "-0.04em",
+            boxShadow: "0 0 28px rgba(255,105,0,0.25)",
+          }}>AE</div>
+
+          <div style={{ flex: 1, minWidth: 200 }}>
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,105,0,0.7)", textTransform: "uppercase", marginBottom: 5 }}>
+              Resmi Festival Organizatörü
+            </div>
+            <div style={{ fontSize: 20, fontWeight: 900, color: "#fff", letterSpacing: "-0.02em", marginBottom: 4 }}>
+              Akdeniz Etkinlik
+            </div>
+            <div style={{ fontSize: 13, color: "rgba(176,220,230,0.55)", lineHeight: 1.6 }}>
+              Yılın en büyük açık hava festivalini hayata geçiren profesyonel etkinlik organizasyon ekibi.
+              Konser, festival ve özel etkinliklerde güvenilir deneyim.
+            </div>
+          </div>
+
+          <a
+            href="https://www.instagram.com/akdenizetkinlik/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              padding: "11px 22px", borderRadius: 999,
+              background: "linear-gradient(135deg, rgba(255,105,0,0.18), rgba(255,61,154,0.12))",
+              border: "1.5px solid rgba(255,105,0,0.45)",
+              color: "#ff6900", fontSize: 12, fontWeight: 800,
+              letterSpacing: "0.1em", textTransform: "uppercase",
+              textDecoration: "none", transition: "all 0.2s", flexShrink: 0,
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "linear-gradient(135deg, rgba(255,105,0,0.3), rgba(255,61,154,0.2))"; e.currentTarget.style.borderColor = "#ff6900"; e.currentTarget.style.boxShadow = "0 0 20px rgba(255,105,0,0.3)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "linear-gradient(135deg, rgba(255,105,0,0.18), rgba(255,61,154,0.12))"; e.currentTarget.style.borderColor = "rgba(255,105,0,0.45)"; e.currentTarget.style.boxShadow = "none"; }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @akdenizetkinlik
+          </a>
+        </div>
 
       <style>{`
         @media (max-width: 768px) {

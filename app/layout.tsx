@@ -11,10 +11,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "BIGENÇFEST AQUA 2025",
-  description: "Türkiye'nin en büyük müzik festivali — 15-17 Ağustos 2025, Bodrum",
+  title: "BIGENÇFEST AQUA 2026",
+  description: "Türkiye'nin en büyük müzik festivali — 15-17 Ağustos 2026, Bodrum",
   openGraph: {
-    title: "BIGENÇFEST AQUA 2025",
+    title: "BIGENÇFEST AQUA 2026",
     description: "Türkiye'nin en büyük müzik festivali",
     type: "website",
   },
