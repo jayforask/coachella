@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Check, X } from "lucide-react";
 
 const TICKETS = [
@@ -217,8 +218,8 @@ export default function TicketsSection() {
 
               {/* CTA */}
               <div style={{ padding: "0 28px 28px" }}>
-                <a
-                  href="#"
+                <Link
+                  href={`/checkout?ticket=${ticket.id}`}
                   style={{
                     display: "block",
                     textAlign: "center",
@@ -254,7 +255,7 @@ export default function TicketsSection() {
                   }}
                 >
                   Satın Al
-                </a>
+                </Link>
               </div>
             </div>
           ))}
